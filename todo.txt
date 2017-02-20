@@ -1,3 +1,0 @@
-dans index.html essayer de bidouiller le script d'appel
-Coté Front ->
-Coté Back  ->
