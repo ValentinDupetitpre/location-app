@@ -1,0 +1,51 @@
+<div class="text-center">
+  <h2> Trouve un coureur près de toi </h2><br>
+</div>
+<div>
+  <h4> En renseignant les coordonnées géographiques </h4>
+</div>
+<form class="form-horizontal" name="newRunnerForm">
+  <div class="form-group">
+    <div class="col-sm-12">
+      <input type="text" class="form-control" id="lat" placeholder="Latitude" ng-model="central.lat">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-12">
+      <input type="text" class="form-control" id="lng" placeholder="Longitude" ng-model="central.lng">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-5 col-sm-12">
+      <button type="submit" class="btn btn-lg btn-primary" ng-click="findRunners(central)">Ajouter</button>
+    </div>
+  </div>
+</form>
+<div class="text-center">
+  <p> {{result}} </p>
+</div>
+
+<div class="text-center">
+  <h1> Les coureurs près de toi : </h1>
+</div>
+
+<div class="container">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Mail</th>
+      <th>Localisation</th>
+      <th>Latitude</th>
+      <th>longitude</th>
+    </tr>
+  </thead>
+      <tbody ng-repeat="coureur in coureurs">
+        <tr>
+          <td>{{coureur.email}}</td>
+          <td> {{coureur.locations.label}} </td>
+          <td> {{coureur.locations.lat}} </td>
+          <td> {{coureur.locations.lng}} </td>
+        </tr>
+      </tbody>
+    </table>
+</div>

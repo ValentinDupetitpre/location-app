@@ -1,0 +1,63 @@
+<div class="text-center">
+  <h2> Formulaire d'ajout d'un coureur </h2>
+</div>
+<form class="form-horizontal" name="newRunnerForm">
+  <div class="form-group">
+    <label for="lat" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="email" placeholder="Email" ng-model=newRunner.email>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="label" class="col-sm-2 control-label">Ville</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="label" placeholder="ville" ng-model="newRunner.locations.label">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="lat" class="col-sm-2 control-label">Latitude</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="lat" placeholder="Latitude" ng-model="newRunner.locations.lat">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="lng" class="col-sm-2 control-label">Longitude</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="lng" placeholder="Longitude" ng-model="newRunner.locations.lng">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default" ng-click="addRunner(newRunner)">Ajouter</button>
+    </div>
+  </div>
+</form>
+<div class="text-center">
+  <p> {{result}} </p>
+</div>
+
+
+
+<div class="container">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Mail</th>
+      <th>Localisation</th>
+      <th>Latitude</th>
+      <th>longitude</th>
+    </tr>
+  </thead>
+      <tbody ng-repeat="user in users">
+        <tr>
+          <td>{{user.email}}</td>
+          <td> {{user.locations.label}} </td>
+          <td> {{user.locations.lat}} </td>
+          <td> {{user.locations.lng}} </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
