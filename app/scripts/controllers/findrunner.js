@@ -8,14 +8,20 @@
  * Controller of the exerciceApp
  */
 angular.module('exerciceApp')
-  .controller('FindrunnerCtrl', function ($scope, serviceAjax) {
+  .controller('FindrunnerCtrl', function ($scope, serviceAjax, serviceMap) {
+
+    var markers = [];
+    serviceMap.initMap();
 
     var loadProches = function (input){
       serviceAjax.proches(input)
       .then(function(data){
         $scope.coureurs = data.data;
-        console.log('recup de findRunner : ',data);
         $scope.result='requète envoyée';
+
+        for(var k=0; k < $scope.coureurs.length; k++){
+          serviceMap.addMarker(markers, $scope.coureurs[k].locations);
+        }
       })
       .catch(function(response){
         console.log(response);
@@ -24,8 +30,9 @@ angular.module('exerciceApp')
     };
 
     $scope.findRunners = function(central){
+      serviceMap.centerMap(central);
+      serviceMap.deleteMarkers(markers);
       loadProches(central);
     };
-
 
   });
